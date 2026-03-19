@@ -15,6 +15,7 @@ EcoSynergy is an integrated platform designed to bridge the gap between solar pr
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/)
 - **Animations**: [Framer Motion](https://www.framer.com/motion/) (Optimized for mobile performance)
 - **Icons**: [Lucide React](https://lucide.dev/)
+- **Analytics**: [Vercel Analytics](https://vercel.com/analytics)
 - **Typography**: Outfit (via Google Fonts)
 - **Image Hosting**: Cloudinary
 
