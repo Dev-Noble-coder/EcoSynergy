@@ -1,13 +1,19 @@
-"use client"
-import React from 'react'
+import React, { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowLeft, CheckCircle2, ChevronDown } from 'lucide-react'
-import { motion } from 'framer-motion'
+import { ArrowLeft, CheckCircle2, ChevronDown, Rocket, X } from 'lucide-react'
+import { motion, AnimatePresence } from 'framer-motion'
 
 const WaitlistPage = () => {
+  const [isSubmitted, setIsSubmitted] = useState(false)
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsSubmitted(true)
+  }
+
   return (
-    <div className="relative min-h-screen w-full flex items-center justify-center py-10 md:p-8">
+    <div className="relative min-h-screen w-full flex items-center justify-center py-10 md:p-8 overflow-hidden">
       {/* Background Image */}
       <motion.div 
         initial={{ opacity: 0 }}
@@ -84,11 +90,12 @@ const WaitlistPage = () => {
           <div className="bg-white/10 backdrop-blur-xl border border-white/20 p-8 rounded-md shadow-2xl">
             <h2 className="text-xl font-bold text-white mb-8">Join the Waitlist</h2>
             
-            <form className="space-y-3">
+            <form onSubmit={handleSubmit} className="space-y-3">
               <div className="space-y-2">
                 <label className="text-xs font-bold text-white/60 uppercase tracking-widest pl-1">Full Name</label>
                 <input 
                   type="text" 
+                  required
                   placeholder="John Doe"
                   className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-[#F58C2A] transition-colors"
                 />
@@ -99,6 +106,7 @@ const WaitlistPage = () => {
                   <label className="text-xs font-bold text-white/60 uppercase tracking-widest pl-1">Email</label>
                   <input 
                     type="email" 
+                    required
                     placeholder="john@example.com"
                     className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 text-white placeholder:text-white/30 focus:outline-none focus:border-[#F58C2A] transition-colors"
                   />
@@ -116,7 +124,7 @@ const WaitlistPage = () => {
               <div className="space-y-2">
                 <label className="text-xs font-bold text-white/60 uppercase tracking-widest pl-1">I am a...</label>
                 <div className="relative">
-                  <select className="w-full bg-white/10 border border-white/10 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-[#F58C2A] transition-colors appearance-none pr-10">
+                  <select required className="w-full bg-white/10 border border-white/10 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-[#F58C2A] transition-colors appearance-none pr-10">
                     <option className="bg-gray-900" value="">Select User Type</option>
                     <option className="bg-gray-900" value="installer">Solar Installer</option>
                     <option className="bg-gray-900" value="engineer">Solar Engineer / Technician</option>
@@ -135,6 +143,7 @@ const WaitlistPage = () => {
                   <label className="text-xs font-bold text-white/60 uppercase tracking-widest pl-1">Country</label>
                   <input 
                     type="text" 
+                    required
                     placeholder="Nigeria"
                     className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 text-white placeholder:text-white/30 focus:outline-none focus:border-[#F58C2A] transition-colors"
                   />
@@ -143,6 +152,7 @@ const WaitlistPage = () => {
                   <label className="text-xs font-bold text-white/60 uppercase tracking-widest pl-1">City</label>
                   <input 
                     type="text" 
+                    required
                     placeholder="Lagos"
                     className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 text-white placeholder:text-white/30 focus:outline-none focus:border-[#F58C2A] transition-colors"
                   />
@@ -161,6 +171,52 @@ const WaitlistPage = () => {
           </div>
         </motion.div>
       </div>
+
+      {/* Success Popup */}
+      <AnimatePresence>
+        {isSubmitted && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-md"
+          >
+            <motion.div 
+              initial={{ scale: 0.9, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.9, opacity: 0, y: 20 }}
+              className="relative w-full max-w-sm bg-white rounded-2xl p-8 text-center shadow-2xl overflow-hidden"
+            >
+              <div className="absolute top-0 left-0 w-full h-2 bg-linear-to-r from-[#F58C2A] to-[#F5512A]" />
+              
+              <button 
+                onClick={() => setIsSubmitted(false)}
+                className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
+              >
+                <X size={20} />
+              </button>
+
+              <div className="mb-6 flex justify-center">
+                <div className="w-16 h-16 bg-[#228B22]/10 rounded-full flex items-center justify-center text-[#228B22]">
+                   <Rocket size={32} />
+                </div>
+              </div>
+
+              <h3 className="text-2xl font-black text-gray-900 mb-2">You&apos;re On the List!</h3>
+              <p className="text-gray-500 text-sm mb-8 leading-relaxed">
+                Thank you for joining EcoSynergy. We&apos;ve reserved your spot in the solar revolution. Watch your inbox for exciting updates!
+              </p>
+
+              <button 
+                onClick={() => setIsSubmitted(false)}
+                className="w-full bg-gray-900 text-white font-bold py-3 rounded-xl hover:bg-black transition-colors shadow-lg"
+              >
+                Awesome!
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   )
 }
