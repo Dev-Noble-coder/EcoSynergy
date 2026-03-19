@@ -55,7 +55,8 @@ const Services = () => {
       id="services"
       className="relative w-full bg-cover bg-center bg-no-repeat rounded-xl overflow-hidden px-7 lg:px-10 py-16 lg:py-20 mb-20"
       style={{
-        backgroundImage: `url(https://res.cloudinary.com/drhfrgahv/image/upload/v1773923870/Gemini_Generated_Image_l6dh6jl6dh6jl6dh_ccwcrt.png)`
+        backgroundImage: `url(https://res.cloudinary.com/drhfrgahv/image/upload/v1773923870/Gemini_Generated_Image_l6dh6jl6dh6jl6dh_ccwcrt.png)`,
+        backgroundPosition : 'center'
       }}
     >
       {/* Dark Overlay */}

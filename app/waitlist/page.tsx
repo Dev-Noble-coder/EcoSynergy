@@ -52,7 +52,7 @@ const WaitlistPage = () => {
           <div className="space-y-4">
             <h1 className="text-6xl font-black leading-tight">
               Power the <br /> 
-              <span className="text-transparent bg-clip-text bg-linear-to-r from-[#F58C2A] to-[#F5512A]">Future</span> of Africa
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-[#F58C2A] to-[#F5512A]">Future</span> of Nigeria
             </h1>
             <p className="text-md text-white/80 max-w-lg mx-auto lg:mx-0">
               Join 125+ professionals building the first solar ecosystem. Be the first to know when we launch.
