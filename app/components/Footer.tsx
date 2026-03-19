@@ -47,10 +47,10 @@ const Footer = () => {
           {/* Contact & Socials */}
           <div className='space-y-8 text-center md:text-right'>
             <div className='flex flex-col md:flex-row items-center gap-8 md:justify-end'>
-              <div className='flex items-center gap-2 text-[#333333] hover:text-[#F58C2A] transition-colors cursor-pointer'>
+              <a href="mailto:hobbs.energy4570@gmail.com" className='flex items-center gap-2 text-[#333333] hover:text-[#F58C2A] transition-colors cursor-pointer'>
                 <Mail size={18} />
                 <span className='text-sm font-medium'>hobbs.energy4570@gmail.com</span>
-              </div>
+              </a>
               
               <div className='flex items-center gap-4'>
                 <a href="https://youtube.com/@hobbs.energy?si=Dwv2d4c9TB0bEifh" target="_blank" rel="noopener noreferrer" className='p-2 bg-gray-50 rounded-full hover:bg-[#EDFAFF] hover:text-[#F58C2A] transition-all' title="YouTube">
