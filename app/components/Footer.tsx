@@ -53,16 +53,16 @@ const Footer = () => {
               </div>
               
               <div className='flex items-center gap-4'>
-                <a href="#" className='p-2 bg-gray-50 rounded-full hover:bg-[#EDFAFF] hover:text-[#F58C2A] transition-all' title="YouTube">
+                <a href="https://youtube.com/@hobbs.energy?si=Dwv2d4c9TB0bEifh" target="_blank" rel="noopener noreferrer" className='p-2 bg-gray-50 rounded-full hover:bg-[#EDFAFF] hover:text-[#F58C2A] transition-all' title="YouTube">
                   <Youtube size={18} />
                 </a>
-                <a href="#" className='p-2 bg-gray-50 rounded-full hover:bg-[#EDFAFF] hover:text-[#F58C2A] transition-all' title="Twitter">
+                <a href="https://x.com/wokeupdann" target="_blank" rel="noopener noreferrer" className='p-2 bg-gray-50 rounded-full hover:bg-[#EDFAFF] hover:text-[#F58C2A] transition-all' title="Twitter">
                   <Twitter size={18} />
                 </a>
-                <a href="#" className='p-2 bg-gray-50 rounded-full hover:bg-[#EDFAFF] hover:text-[#F58C2A] transition-all' title="LinkedIn">
+                <a href="https://www.linkedin.com/in/adebayodanielolamide4570" target="_blank" rel="noopener noreferrer" className='p-2 bg-gray-50 rounded-full hover:bg-[#EDFAFF] hover:text-[#F58C2A] transition-all' title="LinkedIn">
                   <Linkedin size={18} />
                 </a>
-                <a href="#" className='p-2 bg-gray-50 rounded-full hover:bg-[#EDFAFF] hover:text-[#F58C2A] transition-all' title="TikTok">
+                <a href="https://www.tiktok.com/@hobbs.energy?_r=1&_t=ZS-94ojI9OhaEO" target="_blank" rel="noopener noreferrer" className='p-2 bg-gray-50 rounded-full hover:bg-[#EDFAFF] hover:text-[#F58C2A] transition-all' title="TikTok">
                   <TikTokIcon size={18} />
                 </a>
               </div>
