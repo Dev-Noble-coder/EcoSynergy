@@ -1,3 +1,5 @@
+"use client"
+
 import React, { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -191,9 +193,9 @@ const WaitlistPage = () => {
               
               <button 
                 onClick={() => setIsSubmitted(false)}
-                className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
+                className="absolute top-5 right-4 text-gray-400 hover:text-gray-600 transition-colors"
               >
-                <X size={20} />
+                <X size={18} />
               </button>
 
               <div className="mb-6 flex justify-center">
@@ -209,7 +211,7 @@ const WaitlistPage = () => {
 
               <button 
                 onClick={() => setIsSubmitted(false)}
-                className="w-full bg-gray-900 text-white font-bold py-3 rounded-xl hover:bg-black transition-colors shadow-lg"
+                className="w-full bg-gray-900 text-white font-bold py-2.5 rounded-full hover:bg-black transition-colors shadow-lg cursor-pointer"
               >
                 Awesome!
               </button>
