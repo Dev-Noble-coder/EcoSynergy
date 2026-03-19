@@ -1,8 +1,23 @@
 "use client"
 import Image from 'next/image'
 import React from 'react'
-import { Twitter, Linkedin, Instagram, Mail } from 'lucide-react'
+import { Twitter, Linkedin, Youtube, Mail } from 'lucide-react'
 import { motion } from 'framer-motion'
+
+const TikTokIcon = ({ size = 18 }: { size?: number }) => (
+  <svg 
+    width={size} 
+    height={size} 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    stroke="currentColor" 
+    strokeWidth="2" 
+    strokeLinecap="round" 
+    strokeLinejoin="round"
+  >
+    <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
+  </svg>
+)
 
 const Footer = () => {
   return (
@@ -38,14 +53,17 @@ const Footer = () => {
               </div>
               
               <div className='flex items-center gap-4'>
-                <a href="#" className='p-2 bg-gray-50 rounded-full hover:bg-[#EDFAFF] hover:text-[#2A60F5] transition-all'>
+                <a href="#" className='p-2 bg-gray-50 rounded-full hover:bg-[#EDFAFF] hover:text-[#F58C2A] transition-all' title="YouTube">
+                  <Youtube size={18} />
+                </a>
+                <a href="#" className='p-2 bg-gray-50 rounded-full hover:bg-[#EDFAFF] hover:text-[#F58C2A] transition-all' title="Twitter">
                   <Twitter size={18} />
                 </a>
-                <a href="#" className='p-2 bg-gray-50 rounded-full hover:bg-[#EDFAFF] hover:text-[#2A60F5] transition-all'>
+                <a href="#" className='p-2 bg-gray-50 rounded-full hover:bg-[#EDFAFF] hover:text-[#F58C2A] transition-all' title="LinkedIn">
                   <Linkedin size={18} />
                 </a>
-                <a href="#" className='p-2 bg-gray-50 rounded-full hover:bg-[#EDFAFF] hover:text-[#2A60F5] transition-all'>
-                  <Instagram size={18} />
+                <a href="#" className='p-2 bg-gray-50 rounded-full hover:bg-[#EDFAFF] hover:text-[#F58C2A] transition-all' title="TikTok">
+                  <TikTokIcon size={18} />
                 </a>
               </div>
             </div>
