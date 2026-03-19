@@ -85,7 +85,7 @@ const About = () => {
             </p>
           </div>
           <h2 className='text-4xl lg:text-5xl font-extrabold text-[#333333] leading-tight'>
-            Building Africa&apos;s First <br />
+            Building Nigeria&apos;s First <br />
             <span className='text-[#228B22]'>Solar Ecosystem</span>
           </h2>
           <p className='text-[#666666] text-sm leading-relaxed max-w-lg'>

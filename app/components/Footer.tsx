@@ -40,7 +40,7 @@ const Footer = () => {
               className='mx-auto md:mx-0'
             />
             <p className='text-[#666666] text-sm max-w-xs leading-relaxed'>
-              Africa&apos;s First Solar Ecosystem connecting installers, engineers, and users for a sustainable future.
+              Nigeria&apos;s First Solar Ecosystem connecting installers, engineers, and users for a sustainable future.
             </p>
           </div>
 

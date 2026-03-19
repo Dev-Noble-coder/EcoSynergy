@@ -150,9 +150,7 @@ const Navbar = () => {
               </Link>
             </div>
 
-            <div className='mt-auto text-center'>
-              <p className='text-xs text-gray-400 font-bold tracking-widest uppercase'>EcoSynergy Mobile</p>
-            </div>
+          
           </div>
         </div>
     </div>

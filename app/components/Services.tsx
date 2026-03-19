@@ -25,7 +25,7 @@ const Services = () => {
     },
     {
       title: "Solar Ecosystem",
-      description: "Africa's first integrated platform for professionals and solar energy users.",
+      description: "Nigeria's first integrated platform for professionals and solar energy users.",
       icon: <Globe size={22} className="text-white" />,
       isActive: false
     }
@@ -55,7 +55,7 @@ const Services = () => {
       id="services"
       className="relative w-full bg-cover bg-center bg-no-repeat rounded-xl overflow-hidden px-7 lg:px-10 py-16 lg:py-20 mb-20"
       style={{
-        backgroundImage: `url(https://media.istockphoto.com/id/2205558762/photo/solar-panel-technicians-discussing-project-teamwork-and-sustainability.jpg?s=1024x1024&w=is&k=20&c=GzpARa-HAq5eSi0mVA1WflIr6ld1rz2BmZXip2dhsz0=)`
+        backgroundImage: `url(https://res.cloudinary.com/drhfrgahv/image/upload/v1773923870/Gemini_Generated_Image_l6dh6jl6dh6jl6dh_ccwcrt.png)`
       }}
     >
       {/* Dark Overlay */}
@@ -79,7 +79,7 @@ const Services = () => {
               </p>
             </div>
             <h2 className="text-4xl md:text-5xl font-extrabold text-white leading-tight">
-              Africa&apos;s First <br /> Solar Ecosystem
+              Nigeria&apos;s First <br /> Solar Ecosystem
             </h2>
           </motion.div>
 

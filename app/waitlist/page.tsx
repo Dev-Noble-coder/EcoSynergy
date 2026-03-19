@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowLeft, CheckCircle2, ChevronDown, Rocket, X } from 'lucide-react'
+import { ArrowLeft, CheckCircle2, ChevronDown, Rocket, X, Twitter, Link2 } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const WaitlistPage = () => {
@@ -23,14 +23,14 @@ const WaitlistPage = () => {
         transition={{ duration: 0.8 }}
         className="absolute inset-0 z-0 will-change-opacity"
         style={{
-          backgroundImage: `url(https://res.cloudinary.com/drhfrgahv/image/upload/v1773913297/sunset-sky-reflects-solar-panel-sustainable-power-generation-generative-ai_hvgozr.jpg)`,
+          backgroundImage: `url(https://res.cloudinary.com/drhfrgahv/image/upload/v1773924228/Gemini_Generated_Image_fbtjevfbtjevfbtj_ofygw6.png)`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
           transform: 'translateZ(0)'
         }}
       >
-        <div className="absolute inset-0 bg-black/70 backdrop-blur-[2px]" />
+        <div className="absolute inset-0 bg-black/70 backdrop-blur-" />
       </motion.div>
 
       {/* Content Container */}
@@ -161,6 +161,15 @@ const WaitlistPage = () => {
                 </div>
               </div>
 
+              <div className="space-y-2 pt-1">
+                <label className="text-xs font-bold text-white/60 uppercase tracking-widest pl-1">Which feature would you like to see? (Optional)</label>
+                <textarea 
+                  rows={2}
+                  placeholder="e.g. Solar loan calculator, verified installer chat..."
+                  className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-[#F58C2A] transition-colors resize-none"
+                />
+              </div>
+
               <motion.button 
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
@@ -205,9 +214,40 @@ const WaitlistPage = () => {
               </div>
 
               <h3 className="text-2xl font-black text-gray-900 mb-2">You&apos;re On the List!</h3>
-              <p className="text-gray-500 text-sm mb-8 leading-relaxed">
-                Thank you for joining EcoSynergy. We&apos;ve reserved your spot in the solar revolution. Watch your inbox for exciting updates!
+              <p className="text-gray-500 text-sm mb-6 leading-relaxed px-2">
+                Thank you for joining EcoSynergy. We&apos;ve reserved your spot in Nigeria&apos;s solar revolution.
               </p>
+
+              <div className="bg-gray-50 rounded-xl p-4 mb-8 border border-gray-100">
+                <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-3">Share the Revolution</p>
+                <div className="flex justify-center gap-4">
+                  <a 
+                    href={`https://twitter.com/intent/tweet?text=${encodeURIComponent("I just joined the EcoSynergy waitlist! Powering the future of Nigeria's solar ecosystem. ☀️🇳🇬 #EcoSynergy #SolarRevolution")}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 bg-black text-white rounded-full flex items-center justify-center hover:scale-110 transition-transform"
+                  >
+                    <Twitter size={18} fill="white" />
+                  </a>
+                  <a 
+                    href={`https://wa.me/?text=${encodeURIComponent("I just joined the EcoSynergy waitlist! Join me in building Nigeria's first solar ecosystem: https://ecosynergy.com/waitlist")}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 bg-[#25D366] text-white rounded-full flex items-center justify-center hover:scale-110 transition-transform"
+                  >
+                    <svg fill="currentColor" viewBox="0 0 24 24" className="w-5 h-5"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.414 0 .015 5.398.012 12.037c0 2.123.554 4.197 1.606 6.046L0 24l6.103-1.602a11.83 11.83 0 005.942 1.603h.005c6.635 0 12.034-5.399 12.038-12.038.003-3.217-1.246-6.241-3.511-8.507z"/></svg>
+                  </a>
+                  <button 
+                    onClick={() => {
+                      navigator.clipboard.writeText("https://ecosynergy.com/waitlist")
+                      alert("Link copied!")
+                    }}
+                    className="w-10 h-10 bg-gray-200 text-gray-700 rounded-full flex items-center justify-center hover:scale-110 transition-transform"
+                  >
+                    <Link2 size={18} />
+                  </button>
+                </div>
+              </div>
 
               <button 
                 onClick={() => setIsSubmitted(false)}

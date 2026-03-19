@@ -20,7 +20,7 @@ const Testimonial = () => {
     {
       name: "Kwame A.",
       role: "Project Engineer",
-      content: "The collaboration features are exactly what the African solar industry needs. It's truly a complete ecosystem that empowers every professional.",
+      content: "The collaboration features are exactly what the Nigerian solar industry needs. It's truly a complete ecosystem that empowers every professional.",
       rating: 5
     }
   ]
