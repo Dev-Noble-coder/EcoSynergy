@@ -73,7 +73,7 @@ const Navbar = () => {
     <div className='h-[10vh] lg:h-[11vh] text-gray-950 flex justify-between lg:justify-around items-center text-sm px-4 lg:px-0 relative z-50'>
         {/* Logo */}
         <div className='shrink-0'>
-            <Image src='https://res.cloudinary.com/drhfrgahv/image/upload/v1773828992/logo2_ehl6wb.png' alt='logo' width={100} height={100}/>
+            <Image src='https://res.cloudinary.com/drhfrgahv/image/upload/v1773919729/EcoSynergy_et_Hobbs_kvkl6z.png' alt='logo' width={120} height={120}/>
         </div>
 
         {/* Desktop Nav */}
@@ -121,7 +121,7 @@ const Navbar = () => {
         <div className={`fixed top-0 right-0 h-full w-[280px] bg-white/95 backdrop-blur-xl shadow-2xl z-100 transform transition-transform duration-300 ease-in-out lg:hidden ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}>
           <div className='flex flex-col h-full pt-6 px-5'>
             <div className='flex justify-between items-center'>
-              <Image src='https://res.cloudinary.com/drhfrgahv/image/upload/v1773828992/logo2_ehl6wb.png' alt='logo' width={100} height={100}/>
+              <Image src='https://res.cloudinary.com/drhfrgahv/image/upload/v1773919729/EcoSynergy_et_Hobbs_kvkl6z.png' alt='logo' width={120} height={120}/>
               <button onClick={toggleSidebar} className='p-2 text-gray-500'>
                 <X size={24} />
               </button>

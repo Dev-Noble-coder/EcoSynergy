@@ -33,7 +33,7 @@ const Footer = () => {
           {/* Logo & Info */}
           <div className='space-y-6 text-center md:text-left'>
             <Image 
-              src='https://res.cloudinary.com/drhfrgahv/image/upload/v1773828992/logo2_ehl6wb.png' 
+              src='https://res.cloudinary.com/drhfrgahv/image/upload/v1773919729/EcoSynergy_et_Hobbs_kvkl6z.png' 
               alt='EcoSynergy Logo' 
               width={120} 
               height={120}
