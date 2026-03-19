@@ -19,7 +19,7 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "EcoSynergy | Africa's First Solar Ecosystem",
+  title: "EcoSynergy | Nigeria's First Solar Ecosystem",
   description: "Join Africa's first integrated platform for solar professionals and homeowners. Connect with verified installers, access smart design tools, and build a sustainable energy future with EcoSynergy.",
   keywords: ["solar energy", "Africa solar", "renewable energy", "solar installers Nigeria", "solar design tools", "sustainable power"],
 };
