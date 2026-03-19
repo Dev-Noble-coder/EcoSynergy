@@ -70,7 +70,7 @@ const Navbar = () => {
   ]
 
   return (
-    <div className='h-[11vh] text-gray-950 flex justify-between lg:justify-around items-center text-sm px-4 lg:px-0 relative z-50'>
+    <div className='h-[10vh] lg:h-[11vh] text-gray-950 flex justify-between lg:justify-around items-center text-sm px-4 lg:px-0 relative z-50'>
         {/* Logo */}
         <div className='shrink-0'>
             <Image src='https://res.cloudinary.com/drhfrgahv/image/upload/v1773828992/logo2_ehl6wb.png' alt='logo' width={100} height={100}/>
