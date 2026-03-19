@@ -25,7 +25,7 @@ const Heropage = () => {
           className='text-sm lg:text-base will-change-transform'
           style={{ transform: 'translateZ(0)' }}
          >
-          Nigeria’s First Solar Ecosystem for Installers and Energy Users
+          Africa’s First Solar Ecosystem for Installers and Energy Users
          </motion.p>
          
           <div className='max-w-4xl mx-auto'>
