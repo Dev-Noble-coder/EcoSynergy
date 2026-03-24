@@ -8,23 +8,23 @@ const About = () => {
   const features = [
     {
       icon: <Zap className="text-[#228B22]" size={20} />,
-      title: "50% Energy Reduction",
-      description: "Cut your electricity bills by half with our optimized solar load balancing."
+      title: "Sustainable Future",
+      description: "We are committed to driving the transition to clean, renewable energy across Nigeria."
     },
     {
       icon: <ShieldCheck className="text-[#F58C2A]" size={20} />,
-      title: "Vetted Professionals",
-      description: "Connect with certified installers and engineers for guaranteed performance."
+      title: "Uncompromising Quality",
+      description: "Our standards ensure that every project meets the highest benchmarks of safety and reliability."
     },
     {
       icon: <Layout className="text-[#228B22]" size={20} />,
-      title: "Smart Design Tools",
-      description: "Precision load calculations and system designs for maximum efficiency."
+      title: "Innovative Solutions",
+      description: "We provide modern technology that simplifies the management of solar assets."
     },
     {
       icon: <Activity className="text-[#F58C2A]" size={20} />,
-      title: "Seamless Growth",
-      description: "Scale your solar ecosystem as your energy needs evolve over time."
+      title: "Continuous Support",
+      description: "Our team is always monitoring and assisting to keep your operations running smoothly."
     }
   ]
 

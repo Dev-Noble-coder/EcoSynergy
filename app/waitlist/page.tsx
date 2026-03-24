@@ -3,15 +3,46 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowLeft, CheckCircle2, ChevronDown, Rocket, X, Twitter, Link2 } from 'lucide-react'
+import { ArrowLeft, CheckCircle2, ChevronDown, Rocket, X, Twitter, Link2, Loader2 } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { supabase } from '../../lib/supabaseClient'
 
 const WaitlistPage = () => {
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [errorMsg, setErrorMsg] = useState('')
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    setIsSubmitted(true)
+    setIsSubmitting(true)
+    setErrorMsg('')
+    
+    const form = e.currentTarget
+    const formData = new FormData(form)
+    const data = {
+      full_name: formData.get('fullName') as string,
+      email: formData.get('email') as string,
+      phone: formData.get('phone') as string,
+      role: formData.get('role') as string,
+      country: formData.get('country') as string,
+      city: formData.get('city') as string,
+      feature_request: formData.get('feature') as string,
+    }
+
+    try {
+      const { error } = await supabase.from('waitlist').insert([data])
+      if (error) {
+        if (error.code === '23505') throw new Error('You are already on the waitlist!')
+        throw error
+      }
+      setIsSubmitted(true)
+      form.reset()
+    } catch (err: any) {
+      console.error('Submission error:', err)
+      setErrorMsg(err.message || 'Something went wrong. Please try again.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -90,12 +121,13 @@ const WaitlistPage = () => {
           style={{ transform: 'translateZ(0)' }}
         >
           <div className="bg-white/10 backdrop-blur-xl border border-white/20 p-8 rounded-md shadow-2xl">
-            <h2 className="text-xl font-bold text-white mb-8">Join the Waitlist</h2>
+            <h2 className="text-xl font-bold text-white mb-6">Join the Waitlist</h2>
             
             <form onSubmit={handleSubmit} className="space-y-3">
               <div className="space-y-2">
                 <label className="text-xs font-bold text-white/60 uppercase tracking-widest pl-1">Full Name</label>
                 <input 
+                  name="fullName"
                   type="text" 
                   required
                   placeholder="John Doe"
@@ -107,6 +139,7 @@ const WaitlistPage = () => {
                 <div className="space-y-2">
                   <label className="text-xs font-bold text-white/60 uppercase tracking-widest pl-1">Email</label>
                   <input 
+                    name="email"
                     type="email" 
                     required
                     placeholder="john@example.com"
@@ -116,6 +149,7 @@ const WaitlistPage = () => {
                 <div className="space-y-2">
                   <label className="text-xs font-bold text-white/60 uppercase tracking-widest pl-1">Phone (Optional)</label>
                   <input 
+                    name="phone"
                     type="tel" 
                     placeholder="+234..."
                     className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 text-white placeholder:text-white/30 focus:outline-none focus:border-[#F58C2A] transition-colors"
@@ -126,7 +160,7 @@ const WaitlistPage = () => {
               <div className="space-y-2">
                 <label className="text-xs font-bold text-white/60 uppercase tracking-widest pl-1">I am a...</label>
                 <div className="relative">
-                  <select required className="w-full bg-white/10 border border-white/10 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-[#F58C2A] transition-colors appearance-none pr-10">
+                  <select name="role" required className="w-full bg-white/10 border border-white/10 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-[#F58C2A] transition-colors appearance-none pr-10">
                     <option className="bg-gray-900" value="">Select User Type</option>
                     <option className="bg-gray-900" value="installer">Solar Installer</option>
                     <option className="bg-gray-900" value="engineer">Solar Engineer / Technician</option>
@@ -144,6 +178,7 @@ const WaitlistPage = () => {
                 <div className="space-y-2">
                   <label className="text-xs font-bold text-white/60 uppercase tracking-widest pl-1">Country</label>
                   <input 
+                    name="country"
                     type="text" 
                     required
                     placeholder="Nigeria"
@@ -153,6 +188,7 @@ const WaitlistPage = () => {
                 <div className="space-y-2">
                   <label className="text-xs font-bold text-white/60 uppercase tracking-widest pl-1">City</label>
                   <input 
+                    name="city"
                     type="text" 
                     required
                     placeholder="Lagos"
@@ -164,19 +200,34 @@ const WaitlistPage = () => {
               <div className="space-y-2 pt-1">
                 <label className="text-xs font-bold text-white/60 uppercase tracking-widest pl-1">Which feature would you like to see? (Optional)</label>
                 <textarea 
+                  name="feature"
                   rows={2}
                   placeholder="e.g. Solar loan calculator, verified installer chat..."
                   className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-[#F58C2A] transition-colors resize-none"
                 />
               </div>
 
+              {errorMsg && (
+                <div className="text-red-400 text-sm font-semibold bg-red-400/10 p-2 rounded-md border border-red-400/20">
+                  {errorMsg}
+                </div>
+              )}
+
               <motion.button 
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 type="submit"
-                className="w-full mt-4 bg-linear-to-r from-[#F58C2A] to-[#F5512A] text-white font-bold py-2.5 rounded-full shadow-xl cursor-pointer"
+                disabled={isSubmitting}
+                className="w-full mt-4 bg-linear-to-r from-[#F58C2A] to-[#F5512A] text-white font-bold py-2.5 rounded-full shadow-xl cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
               >
-                Join the Waitlist
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="animate-spin" size={20} />
+                    <span>Submitting...</span>
+                  </>
+                ) : (
+                  "Join the Waitlist"
+                )}
               </motion.button>
             </form>
           </div>
